@@ -1,0 +1,42 @@
+{
+  "name": "skillswap",
+  "version": "1.0.0",
+  "description": "skill reverse skill",
+  "main": "src/server.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon src/server",
+    "start": "node src/server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keshavsingh123/skillSwap-B.git"
+  },
+  "author": "Keshav Singh FSD",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/keshavsingh123/skillSwap-B/issues"
+  },
+  "homepage": "https://github.com/keshavsingh123/skillSwap-B#readme",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "bcryptjs": "^3.0.3",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.6",
+    "crypto": "^1.0.1",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "express-rate-limiter": "^1.3.1",
+    "helmet": "^8.3.0",
+    "joi": "^18.2.3",
+    "jsonwebtoken": "^9.0.3",
+    "mongodb": "^7.5.0",
+    "mongoose": "^8.24.1",
+    "morgan": "^1.11.0",
+    "nodemailer": "^6.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}

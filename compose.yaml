@@ -1,0 +1,52 @@
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    container_name: skillswap-api
+
+    env_file:
+      - .env
+
+    ports:
+      - "127.0.0.1:5000:5000"
+
+    volumes:
+      - .:/app
+      - /app/node_modules
+
+    depends_on:
+      mongo:
+        condition: service_healthy
+
+    restart: unless-stopped
+
+  mongo:
+    image: mongo:4.4.30-focal
+
+    container_name: skillswap-mongo
+
+    command:
+      - mongod
+      - --replSet
+      - rs0
+      - --bind_ip_all
+
+    ports:
+      - "127.0.0.1:27018:27017"
+
+    volumes:
+      - skillswap_mongo_data:/data/db
+
+    healthcheck:
+      test: ["CMD", "mongo", "--quiet", "--eval", "db.adminCommand('ping').ok"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+    restart: unless-stopped
+
+volumes:
+  skillswap_mongo_data:
