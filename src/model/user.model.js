@@ -45,6 +45,11 @@ const userSchema = new mongoose.Schema(
       type: Number,
       default: 0,
     },
+    isSystemUser: {
+  type: Boolean,
+  default: false,
+  select: false,
+},
   },
   {
     timestamps: true,
